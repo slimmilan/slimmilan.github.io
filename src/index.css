@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* PhoenixCloud Design System - Dark Theme */
+    --background: 216 35% 6%;
+    --foreground: 220 15% 91%;
+
+    --surface: 223 28% 11%;
+    --surface-elevated: 223 28% 14%;
+
+    --card: 223 28% 11%;
+    --card-foreground: 220 15% 91%;
+
+    --popover: 223 28% 14%;
+    --popover-foreground: 220 15% 91%;
+
+    --primary: 25 100% 50%;
+    --primary-foreground: 220 15% 91%;
+
+    --secondary: 346 100% 59%;
+    --secondary-foreground: 220 15% 91%;
+
+    --muted: 215 14% 34%;
+    --muted-foreground: 215 14% 66%;
+
+    --accent: 25 100% 50%;
+    --accent-foreground: 220 15% 91%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 220 15% 91%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 220 15% 91%;
+
+    --border: 0 0% 100% / 0.08;
+    --input: 223 28% 14%;
+    --ring: 25 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(25 100% 50%), hsl(346 100% 59%), hsl(250 50% 20%));
+    --gradient-card: linear-gradient(135deg, hsl(223 28% 11%), hsl(223 28% 14%));
+
+    /* Shadows */
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.35);
+    --shadow-glow: 0 0 40px hsl(25 100% 50% / 0.2);
+
+    /* Transitions */
+    --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-hero);
+  }
+
+  .glass {
+    background: hsl(var(--surface) / 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.6s ease-out forwards;
+  }
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
